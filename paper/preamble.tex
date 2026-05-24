@@ -1,0 +1,171 @@
+% ============================================================
+% Preamble — UWM Paper
+% Two-column article layout (venue-neutral, arXiv-ready)
+% ============================================================
+
+% --- Math (load before fonts to avoid conflicts) ---
+\usepackage{mathtools}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{bm}
+
+% --- Typography ---
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}          % Times-like text
+\usepackage[cmintegrals]{newtxmath}  % Matching math, avoids amssymb conflicts
+\usepackage{microtype}
+\linespread{1.05}               % Tight two-column spacing
+
+% --- Page geometry (two-column, compact margins) ---
+\usepackage[
+  a4paper,
+  top=2cm,
+  bottom=2cm,
+  left=1.8cm,
+  right=1.8cm,
+  columnsep=0.6cm,
+  headheight=14pt
+]{geometry}
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{makecell}           % Multi-line cells in tables
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Caption styling — compact two-column
+\captionsetup{
+  font={footnotesize},
+  labelfont={bf},
+  labelsep=quad,
+  justification=justified,
+  singlelinecheck=false,
+  skip=6pt,
+}
+
+% --- Colors and hyperlinks ---
+\usepackage[dvipsnames]{xcolor}
+\definecolor{secgray}{HTML}{333333}
+
+% Elegant hyperlink colors — muted, professional
+\definecolor{linkdark}{HTML}{1A1A2E}     % near-black navy for cross-refs
+\definecolor{citedark}{HTML}{2E4057}     % dark steel for citations
+\definecolor{urlteal}{HTML}{3A6B7E}      % muted teal for URLs
+
+\usepackage[
+  colorlinks=true,
+  linkcolor=linkdark,
+  citecolor=citedark,
+  urlcolor=urlteal,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  pdfstartview={FitH},
+]{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+
+% --- Bibliography ---
+\usepackage[numbers,sort&compress,super]{natbib}
+\bibliographystyle{unsrtnat}
+\setlength{\bibsep}{0pt plus 0.3ex}
+
+% --- Section formatting — compact two-column ---
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\large\bfseries\color{secgray}}
+  {\thesection}{0.6em}{}
+\titlespacing*{\section}{0pt}{14pt plus 3pt minus 2pt}{4pt plus 2pt minus 1pt}
+
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{secgray}}
+  {\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{10pt plus 2pt minus 1pt}{2pt plus 1pt minus 1pt}
+
+\titleformat{\paragraph}[runin]
+  {\normalsize\bfseries}
+  {}{0em}{}[.]
+\titlespacing*{\paragraph}{0pt}{6pt plus 2pt minus 1pt}{0.5em}
+
+% --- Header/footer ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{A Density-Matrix Joint Embedding Predictive Architecture}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\small\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% --- Line numbers (for review) ---
+\usepackage{lineno}
+% \linenumbers  % Uncomment for review version
+
+% --- Appendix ---
+\usepackage[title]{appendix}
+
+% --- Theorem environments ---
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+% --- Trace operator and Dirac notation ---
+\DeclareMathOperator{\Tr}{Tr}
+\usepackage{braket}             % \ket, \bra, \braket
+\newcommand{\ketbra}[2]{\ket{#1}\!\bra{#2}}
+
+% ============================================================
+% Custom commands
+% ============================================================
+
+% Density matrices
+\newcommand{\rhotot}{\rho_{\text{total}}}
+\newcommand{\rhosys}{\rho_{\text{sys}}}
+\newcommand{\rhoenv}{\rho_{\text{env}}}
+
+% Hamiltonians
+\newcommand{\Htot}{H_{\text{total}}}
+\newcommand{\Hsys}{H_{\text{sys}}}
+\newcommand{\Henv}{H_{\text{env}}}
+\newcommand{\Hint}{H_{\text{int}}}
+
+% Dimensions
+\newcommand{\dsys}{d_{\text{sys}}}
+\newcommand{\denv}{d_{\text{env}}}
+\newcommand{\dtot}{d_{\text{total}}}
+
+% Operators
+\newcommand{\Ksys}{K_{\text{sys}}}
+\newcommand{\Ktot}{K_{\text{total}}}
+
+% Shorthands
+\newcommand{\ie}{i.e.}
+\newcommand{\eg}{e.g.}
+\newcommand{\cf}{cf.}
+\newcommand{\etal}{\textit{et al.}}
+
+% Gell-Mann
+\newcommand{\gm}{\lambda}
+
+% Trace operations
+\newcommand{\Trenv}{\Tr_{\text{env}}}
+\newcommand{\Trsys}{\Tr_{\text{sys}}}
+
+% von Neumann entropy
+\newcommand{\SvN}{S_{\text{vN}}}
+
+% Norms
+\newcommand{\fnorm}[1]{\left\|#1\right\|_F}
+
+% Figure paths
+\graphicspath{
+  {figures/}
+  {../figures/main_text/}
+  {../figures/supplement/}
+}

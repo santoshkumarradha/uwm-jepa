@@ -1,0 +1,28 @@
+\begin{abstract}
+World models for partially observed environments must imagine
+multiple compatible hidden futures and steer between them under
+counterfactual actions. JEPA-family world models do this in latent
+space, but a vector-valued latent has no internal structure for
+carrying the belief over hidden continuations through blind rollout.
+We introduce UWM-JEPA, a JEPA world model with a density-matrix
+latent on a joint system--environment space and a learned unitary
+predictor. The construction preserves the joint-state spectrum
+exactly during rollout, so the predictor itself cannot dissipate the
+represented uncertainty.
+
+On a hidden-velocity indicator task requiring five-step forward
+simulation under a given action sequence with the target observation
+masked, UWM-JEPA reaches $0.77$ accuracy and degrades monotonically
+as actions are perturbed; a parameter-matched LSTM-JEPA with the
+same objective and action head collapses to majority-class accuracy
+($0.53$) under every action condition. Under blind rollout, UWM-JEPA
+loses fewer than ten points of probe $R^2$ at short horizons while
+vector-latent baselines lose forty-one and sixty-eight; both
+nevertheless tie on a held-out context probe, locating the
+separation in the predictor rather than the encoder. Action
+sensitivity itself requires training against counterfactual rather
+than teacher-forced targets, a finding that applies beyond the
+unitary parameterisation. For JEPA world models to imagine under
+partial observability, latent geometry and predictor dynamics
+matter, not encoder capacity alone.
+\end{abstract}

@@ -1,0 +1,86 @@
+\section{Discussion and Scope}
+\label{sec:limitations}
+
+UWM-JEPA is a JEPA-family world model whose latent is a density matrix
+and whose predictor is unitary on a system--environment space. This
+construction yields an exact non-dissipation property on the joint
+latent and, in the tested partially observable settings, improves
+intermediate-horizon blind rollout and counterfactual
+action-conditioned imagination. The architecture is not a universally
+stronger encoder, a general anti-collapse mechanism, or a competitive
+planner.
+
+The phrase \emph{belief state} is used here in an operational sense:
+the latent is a density-matrix representation capable of carrying
+uncertainty and system--environment correlations through rollout.
+Calibrated posterior structure over the true hidden state would
+require a separate posterior-alignment experiment and is outside the
+present claims.
+
+The headline negative result is the context-probe tie. UWM-JEPA and
+LSTM-JEPA encode the observed prefix equally well on the held-out
+hidden-velocity probe, so the empirical advantage appears only when
+the latent is rolled forward without new observations or when actions
+are varied counterfactually. This separation organises the experiments
+around encoder quality, blind rollout, and action binding rather than
+around a single aggregate score.
+
+The non-forgetting theorem applies to the joint density matrix.
+Unitary conjugation preserves the spectrum, purity, and entropy of the
+\emph{joint} state, but the downstream loss and probes see only the
+reduced and projected system state. Reduced-state information can
+move into correlations and become inaccessible to a linear probe even
+when the joint evolution is exactly reversible, so the operational
+memory curves in \cref{fig:blind-rollout} complement rather than
+duplicate the theorem; they measure what remains useful after the
+readout used by the actual JEPA objective. The JEPA predictors in
+that experiment are trained at horizon $k=5$, so $k=1$ and $k=3$
+probe intermediate rollout coherence and $k>5$ probes extrapolation
+rather than a monotone information-theoretic forgetting curve.
+
+The action results establish counterfactual sensitivity rather than
+broad planning competence. Teacher-forced action JEPA leaves the action
+Hamiltonian nearly inert, whereas counterfactual targets recover an
+action term comparable to the base dynamics and yield an above-chance
+hidden-velocity indicator with the expected degradation under wrong,
+shuffled, and no-action controls. The construction is evidence for
+action-conditioned imagination in this testbed, not for long-horizon
+planning, and not for any claim that recurrent or Transformer
+predictors with different architectures or objectives could not close
+the gap. The counterfactual training target also requires simulator
+access to construct alternate futures, which limits portability to
+settings where only passive videos or observation streams are
+available.
+
+Matched-baseline language refers to trainable parameter count rather
+than the number of coordinates in the latent state. A $16\times16$
+density matrix carries more real degrees of freedom than a length-$16$
+vector hidden state, even when the trainable encoder and predictor
+budgets are matched, which makes the context-probe tie in
+\cref{fig:heldout} a central control: it shows that the main
+comparison is not explained by a better frozen context representation.
+
+The present experiments use structured partially observable oscillator
+and CartPole-style settings, and the present results do not extend to
+hidden Markov chains, ring-walker environments, or unstructured visual
+prediction. The current comparison set covers LSTM-JEPA models with
+plain and residual MLP predictors, GRU, orthogonal recurrent, and MLP
+baselines, with the recurrent families grounded in
+GRU~\cite{cho2014learning}, orthogonal/unitary
+RNN~\cite{arjovsky2016unitary,wisdom2016full}, and
+LSTM~\cite{hochreiter1997long} architectures. Learned Lie-algebra
+predictors~\cite{greydanus2019hamiltonian}, neural ODE
+predictors~\cite{chen2018neural}, state-space
+models~\cite{gu2022efficiently,gu2023mamba}, and Transformer
+predictors~\cite{vaswani2017attention} remain natural future
+baselines. Within that scope, the contribution is a controlled
+demonstration that belief-state structure can separate context
+representation from rollout-time memory in a JEPA world model.
+
+Seed counts are asymmetric by design. The frozen context probe is
+reported over five seeds because it is the key negative control for
+encoder quality; blind-rollout and action-conditioned experiments are
+reported over three seeds because they require trained predictor or
+counterfactual-action checkpoints. Strong claims are confined to
+low-variance regions and seed counts appear in every relevant table
+caption.

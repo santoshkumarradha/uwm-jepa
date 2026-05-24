@@ -1,0 +1,54 @@
+\section{Exact Non-Forgetting, Operational Memory}
+\label{sec:nonforget}
+
+The term \emph{without forgetting} has a precise scope in this paper:
+the predictor channel is non-dissipative on the joint density matrix,
+even though individual downstream probes may not retain their accuracy
+at every horizon. For $P_k(\rho)=U^k\rho(U^\dagger)^k$, unitary
+conjugation preserves the joint spectrum and therefore every spectral
+functional of the joint state~\cite{nielsen2010quantum}:
+\begin{equation}
+  \begin{aligned}
+  \mathrm{spec}(P_k(\rho))&=\mathrm{spec}(\rho),\\
+  \Tr(P_k(\rho)^2)&=\Tr(\rho^2),\\
+  S(P_k(\rho))&=S(\rho).
+  \end{aligned}
+  \label{eq:joint-invariants}
+\end{equation}
+These identities encode the structural reason the predictor cannot
+dissipate information during blind
+rollout~\cite{nielsen2010quantum,baker2022quantum}.
+The implementation preserves these invariants to numerical precision
+over $30$ rollout steps; the largest observed drift is below
+$2.4\times 10^{-7}$ (Supplementary \cref{fig:supp-invariants}).
+
+The qualification matters as much as the guarantee. The JEPA loss and
+the probes observe $\Tr_{\env}\rho$ through a projection rather than
+the full joint state, and partial trace is not unitary. Information can
+move into system--environment correlations and become inaccessible to a
+reduced-state linear probe while the joint state remains exactly
+non-dissipative. The paper therefore reports two levels of evidence:
+\cref{eq:joint-invariants} fixes the structural property of the
+predictor, and the blind-rollout experiments in \cref{sec:imagine}
+measure how much task-relevant information survives reduction,
+projection, and repeated prediction without new observations.
+
+The same geometry yields a useful diagnostic for what a unitary
+predictor can match on the full joint space. The spectrum-mismatch
+theorem in \cref{sec:theorem} states that
+\begin{equation}
+  \min_{U\in \mathrm{U}(\dtot)}
+  \|U\rho U^\dagger-\sigma\|_F^2
+  =
+  \|\lambda^\downarrow(\rho)-\lambda^\downarrow(\sigma)\|_2^2.
+  \label{eq:spectrum-mismatch-short}
+\end{equation}
+A unitary predictor can therefore match a full-state target exactly
+only when context and target density matrices are isospectral. The
+statement constrains the predictor's orbit geometry on the joint state
+and does not transfer as a lower bound to the reduced and projected
+JEPA loss in \cref{eq:jepa-loss}. In training, the online and EMA
+target encoders co-adapt, so the objective can become small by learning
+spectrum-compatible regions of latent space before the
+reduced/projected loss is evaluated. The full theorem, proof, and a
+numerical orbit visualisation appear in the supplement.

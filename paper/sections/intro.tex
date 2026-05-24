@@ -1,0 +1,102 @@
+\section{Introduction}
+\label{sec:intro}
+
+JEPA-style world models predict in latent space rather than reconstruct
+observations. An online encoder maps an observed context to a latent
+representation, a predictor advances that latent forward, and a slowly
+moving target encoder supplies the future representation to
+match~\cite{grill2020bootstrap,tarvainen2017mean}. The abstraction
+underlies I-JEPA~\cite{assran2023ijepa}, V-JEPA~\cite{assran2024vjepa},
+and the broader JEPA programme~\cite{lecun2022path}, and it is closely
+related to non-contrastive SSL methods such as BYOL~\cite{grill2020bootstrap},
+SimSiam~\cite{chen2021exploring}, DINO~\cite{caron2021emerging},
+VICReg~\cite{bardes2022vicreg}, and Barlow Twins~\cite{zbontar2021barlow}.
+By moving away from pixel- or token-level reconstruction, JEPAs cleanly
+separate representation learning from generative decoding, but they
+leave open a question that becomes central under partial observability:
+what geometry should the latent occupy when it must be imagined forward
+without new observations~\cite{ha2018world,hafner2020dream,hafner2020dreamerv2,hafner2023dreamerv3}?
+
+Partial observability changes the object being
+predicted~\cite{kaelbling1998planning}. When the current observation
+history does not determine the hidden state, the future is not a single
+point in representation space. The same context supports several
+compatible hidden states, and the natural latent is a belief over those
+hidden variables rather than a deterministic
+embedding~\cite{kaelbling1998planning,hausknecht2015drqn,igl2018deep,karkus2017qmdp}.
+A vector predictor trained against an EMA target can still drive the
+loss down, but the loss alone does not specify which uncertainty the
+latent should preserve, which should be averaged away, or how a
+counterfactual action should move the belief. We study a concrete
+alternative: a JEPA whose latent is a density matrix and whose
+predictor is a learned unitary on a joint system--environment
+space~\cite{nielsen2010quantum,breuer2002theory,stinespring1955positive}.
+
+The resulting model, the Unitary World Model JEPA (UWM-JEPA),
+produces a joint density matrix $\rho_t$ from the online encoder and
+advances it by
+\begin{equation}
+  \hat\rho_{t+k\mid t}
+  =
+  U^k \rho_t (U^\dagger)^k .
+\end{equation}
+The training scaffold is JEPA-native: an EMA target encoder, a
+stop-gradient target, and a latent-space matching loss. Only the
+geometry of the predicted quantity changes. A density matrix represents
+a graded belief over latent configurations; unitary conjugation
+preserves the joint-state spectrum, purity, and von Neumann entropy
+exactly during blind rollout. We refer to this property as
+\emph{joint-state non-forgetting}.
+
+The qualifier \emph{joint-state} matters. The theorem applies to the
+full system--environment density matrix and does not, on its own,
+imply that the reduced system state remains linearly decodable after
+many steps or that UWM-JEPA encodes context better than a strong
+recurrent baseline. The empirical work in this paper measures what
+survives the two operations that matter for downstream use: partial
+trace to the system state and blind rollout through time.
+
+\paragraph{Counterfactual targets recover an action-sensitive predictor}
+Under a teacher-forced JEPA target the learned action term collapses to
+$\|H_1\|/\|H_0\|\approx0.03$, because the target encoder has already
+consumed the observed future and the predictor can match it without
+using the action. Replacing the target by a counterfactual simulator
+rollout restores the action term to $1.00\pm0.15$, action perturbations
+move the predicted latent in the expected direction, and UWM-JEPA
+solves a hidden-velocity indicator task on which the matched
+LSTM-JEPA-CF baseline remains at majority-class accuracy.
+
+\paragraph{The unitary predictor improves short-horizon imagination}
+When the latent is rolled forward without new observations, UWM-JEPA
+preserves target-nearness better than the vector predictors we tested.
+In future-latent retrieval, UWM-JEPA remains far above LSTM-JEPA models
+with plain and residual MLP predictors across
+$k\in\{1,3,5,10\}$. In teacher-versus-blind probing, UWM-JEPA loses
+less than ten points of $R^2$ at the intermediate horizons $k=1$ and
+$k=3$, both shorter than the trained horizon $k=5$, while LSTM-JEPA
+loses substantially more at those horizons and re-aligns near $k=5$. Beyond $k=10$, both models
+have low or negative blind probe scores, so long-horizon retention
+remains an open question rather than a settled claim.
+
+\paragraph{Context representation is a control}
+On the held-out linear probe used to measure context representation,
+UWM-JEPA and a parameter-matched LSTM-JEPA agree within seed noise:
+$R^2=0.901\pm0.032$ versus $0.894\pm0.021$ over five seeds (Welch
+$p=0.70$). The density-matrix latent is not a stronger context encoder,
+so the behavioral separation is not explained by encoder quality.
+
+To our knowledge, UWM-JEPA is the first JEPA-family world model in
+which the latent is treated as an explicit belief over hidden
+continuations rather than a single representational point, and in
+which the predictor is constrained to evolve that belief without
+dissipating it during imagined rollout. The density-matrix latent,
+the unitary predictor, and the counterfactual action targets are the
+specific tools we use to instantiate this property, but the broader
+claim is about giving a JEPA latent a place to carry uncertainty and
+holding on to that uncertainty under prediction. \Cref{sec:architecture} defines the model.
+\Cref{sec:nonforget} states the joint-state guarantee and its scope.
+\Cref{sec:actions} gives the main action-conditioned behavioral test,
+\cref{sec:imagine} tests blind rollout without new observations, and
+\cref{sec:representation} establishes that these effects are not
+explained by a stronger context encoder. Collapse diagnostics and the
+claim-to-evidence audit are reported in the supplement.

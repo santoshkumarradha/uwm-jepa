@@ -1,0 +1,83 @@
+\section{Claim-to-Evidence Audit}
+\label{sec:claim_map}
+
+\Cref{tab:claim_map} records the operational meaning of each major
+claim in the manuscript, the evidence supporting it, and the
+corresponding limitation, making the claim boundaries explicit for
+audit.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{\textbf{Claim-to-evidence map for UWM-JEPA.} Each row binds a
+manuscript claim to an operational definition, the specific evidence
+backing it, and an explicit limitation.}
+\label{tab:claim_map}
+\begin{tabular}{p{2.4cm} p{4.2cm} p{4.4cm} p{4.4cm}}
+\toprule
+\textbf{Title phrase} & \textbf{Operational definition} &
+\textbf{Evidence} & \textbf{Limitation} \\
+\midrule
+UWM-JEPA &
+JEPA-family latent-target training with a density-matrix representation
+and a unitary predictor (encoder, EMA target, latent loss,
+stop-gradient, frozen probes). &
+Architecture \& loss specification (\cref{sec:architecture},
+\cref{sec:training}); training dynamics in the collapse dashboard. &
+Not equivalent to V-JEPA; we claim JEPA-family membership, not
+method parity with any particular visual JEPA implementation. \\
+\addlinespace
+Imagine &
+Blind, action-free latent rollout from a single observed prefix:
+predict $z_{t+k}$ without access to $o_{t+1}, \ldots, o_{t+k}$. &
+Retrieval-at-horizon and ${\Delta}R^2$ retention against matched
+LSTM-JEPA encoders with plain and residual MLP predictors. &
+Predictors trained at horizon $k{=}5$; $k{<}5$ probes intermediate
+rollout coherence and $k{>}5$ probes extrapolation. Other predictor
+families are not evaluated. \\
+\addlinespace
+Without forgetting &
+(i) Exact preservation of joint-state spectral invariants under blind
+rollout (theorem); (ii) empirically measurable reduced-state retention. &
+Invariants numerical check ($< 10^{-7}$ drift over 30 steps); held-out
+probe; $\Delta R^2$ retention at $k{=}1{-}5$. &
+Reduced-state retention degrades on longer horizons; the exact
+guarantee does not transfer undiminished to the probed subspace. \\
+\addlinespace
+World model &
+Action-conditioned counterfactual prediction: swapping actions changes
+predicted latent trajectories in a controlled way. &
+Counterfactual H1/H0 ratio ($1.00 \pm 0.15$), nonzero commutator,
+wrong-action / shuffled-action / no-action controls; hidden-velocity
+indicator task. &
+Planning micro-task is weak (3--5$\times$ over chance); no
+competitive-planner claim; counterfactual targets require simulator
+state access. \\
+\addlinespace
+Not universal &
+UWM-JEPA is presented as a structured belief-state testbed, not as a
+general-purpose sequence model. &
+Held-out probe tie with LSTM-JEPA ($0.901$ vs $0.894$); explicit scope
+statement. &
+Oscillator and CartPole-style settings only; no JEPA-native HMM or
+ring-walker claim. \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Claim ladder}
+The claim hierarchy has eight rungs. (1)~UWM-JEPA is a JEPA-family
+model (encoder, EMA target, latent loss, stop-gradient, frozen
+probes). (2)~Its unitary predictor preserves joint-state spectral
+invariants under blind rollout (theorem and numerical check). (3)~The
+exact guarantee does not transfer to useful reduced-state memory;
+long-horizon reduced retention is limited. (4)~On context
+representation, UWM ties LSTM-JEPA ($0.901$ vs $0.894$). (5)~Under
+blind rollout, UWM preserves target-nearness better than the tested
+LSTM-JEPA MLP predictors at intermediate horizons. (6)~Teacher-forced
+action JEPA ignores the action pathway
+($\|H_1\|/\|H_0\|{\approx}0.03$). (7)~Counterfactual / internal-action
+targets induce action-sensitive dynamics
+($\|H_1\|/\|H_0\|{=}1.00\pm0.15$ with controls). (8)~UWM-JEPA is a
+structured testbed for belief-state world models within the studied
+setting.

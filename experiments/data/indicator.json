@@ -1,0 +1,89 @@
+{
+  "rows": [
+    {
+      "seed": 42,
+      "uwm": {
+        "correct": 0.78,
+        "wrong": 0.656,
+        "no_action": 0.74,
+        "shuffled": 0.688
+      },
+      "lstm": {
+        "correct": 0.53,
+        "wrong": 0.53,
+        "no_action": 0.53,
+        "shuffled": 0.53
+      }
+    },
+    {
+      "seed": 123,
+      "uwm": {
+        "correct": 0.758,
+        "wrong": 0.6,
+        "no_action": 0.742,
+        "shuffled": 0.682
+      },
+      "lstm": {
+        "correct": 0.53,
+        "wrong": 0.53,
+        "no_action": 0.53,
+        "shuffled": 0.53
+      }
+    },
+    {
+      "seed": 456,
+      "uwm": {
+        "correct": 0.772,
+        "wrong": 0.66,
+        "no_action": 0.718,
+        "shuffled": 0.684
+      },
+      "lstm": {
+        "correct": 0.53,
+        "wrong": 0.53,
+        "no_action": 0.53,
+        "shuffled": 0.53
+      }
+    }
+  ],
+  "summary": {
+    "uwm": {
+      "correct": {
+        "mean": 0.77,
+        "std": 0.011135528725660053
+      },
+      "wrong": {
+        "mean": 0.6386666666666666,
+        "std": 0.03354598833442436
+      },
+      "no_action": {
+        "mean": 0.7333333333333334,
+        "std": 0.013316656236958798
+      },
+      "shuffled": {
+        "mean": 0.6846666666666668,
+        "std": 0.0030550504633038355
+      }
+    },
+    "lstm": {
+      "correct": {
+        "mean": 0.53,
+        "std": 0.0
+      },
+      "wrong": {
+        "mean": 0.53,
+        "std": 0.0
+      },
+      "no_action": {
+        "mean": 0.53,
+        "std": 0.0
+      },
+      "shuffled": {
+        "mean": 0.53,
+        "std": 0.0
+      }
+    }
+  },
+  "K": 5,
+  "N_EVAL": 500
+}

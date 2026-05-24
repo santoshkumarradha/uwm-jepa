@@ -1,0 +1,112 @@
+{
+  "n_eval": 500,
+  "k_horizon": 5,
+  "class_counts": {
+    "0": 265,
+    "1": 235
+  },
+  "majority_class": 0,
+  "majority_accuracy": 0.53,
+  "rows": [
+    {
+      "seed": 42,
+      "conditions": {
+        "correct": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 23.84785408593988
+        },
+        "wrong": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 23.840160629120714
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 22.07804961415137
+        },
+        "shuffled": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 23.85361659828304
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "conditions": {
+        "correct": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 17.84187192833117
+        },
+        "wrong": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 17.844044910016333
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 21.05785368087712
+        },
+        "shuffled": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 17.85060882004833
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "conditions": {
+        "correct": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 23.461034993034822
+        },
+        "wrong": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 23.43914963964611
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 21.582395731443235
+        },
+        "shuffled": {
+          "accuracy": 0.53,
+          "predicted_counts": {
+            "0": 500
+          },
+          "mean_abs_logit_margin": 23.465091940107886
+        }
+      }
+    }
+  ],
+  "conclusion": "All evaluated LSTM-CF checkpoints predict the majority class for every held-out example under every action condition."
+}

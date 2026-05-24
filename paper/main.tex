@@ -1,0 +1,108 @@
+\documentclass[10pt,a4paper,twocolumn]{article}
+
+\input{preamble}
+
+\usepackage{enumitem}
+\usepackage{authblk}
+\usepackage{placeins}
+\usepackage{flushend}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\dbltopfraction}{0.9}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
+\renewcommand{\dblfloatpagefraction}{0.8}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\setcounter{dbltopnumber}{2}
+
+\newcommand{\sys}{\mathcal{S}}
+\newcommand{\env}{\mathcal{E}}
+\newcommand{\tot}{\mathcal{T}}
+
+\fancyhead[L]{\small\textit{UWM-JEPA: Predictive World Models That Imagine in Belief Space}}
+
+\begin{document}
+
+\twocolumn[
+\begin{center}
+  {\LARGE\bfseries UWM-JEPA: Predictive World Models\\[4pt]
+   That Imagine in Belief Space\par}
+  \vspace{6pt}
+  {\normalsize\itshape Unitary density-matrix latent prediction for partially observable JEPA world models\par}
+  \vspace{12pt}
+  {\large
+    \href{https://www.linkedin.com/in/santoshkumarradha}{Santosh Kumar Radha}\textsuperscript{1,*}
+    \quad
+    \href{https://www.linkedin.com/in/oktay-goktas-8b2881167/}{Oktay Goktas}\textsuperscript{1}
+  \par}
+  \vspace{6pt}
+  {\small\textsuperscript{1}AgentField AI, Toronto, Canada\par}
+  \vspace{4pt}
+  {\small\textsuperscript{*}Correspondence: \href{mailto:contact@santoshkumarradha.com}{contact@santoshkumarradha.com}, \href{mailto:santosh@agentfield.ai}{santosh@agentfield.ai}\par}
+  \vspace{4pt}
+  {\small Code: \href{https://github.com/santoshkumarradha/uwm-jepa}{\texttt{github.com/santoshkumarradha/uwm-jepa}}\par}
+  \vspace{14pt}
+\end{center}
+
+\input{sections/abstract}
+
+\vspace{8pt}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{8pt}
+]
+
+\input{sections/intro}
+\input{sections/architecture}
+\input{sections/nonforget}
+\input{sections/actions}
+\input{sections/imagine}
+\input{sections/representation}
+\input{sections/limitations}
+
+{
+\small
+\bibliography{references}
+}
+
+\vspace{8pt}
+\noindent\rule{\columnwidth}{0.4pt}
+\vspace{4pt}
+
+\section*{Data and Code Availability}
+All code, data, and figure-generation scripts are available at \url{https://github.com/santoshkumarradha/uwm-jepa}. The evidence figures in the paper are regenerated from the experiment outputs bundled in the \texttt{experiments/data/} folder of that repository.
+
+\clearpage
+\onecolumn
+\appendix
+
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thesubsection}{S\arabic{section}.\arabic{subsection}}
+
+\begin{center}
+  \vspace{20pt}
+  {\Large\bfseries Supplementary Information}\\[10pt]
+  {\large UWM-JEPA: Predictive World Models That Imagine in Belief Space}\\[6pt]
+  {Santosh Kumar Radha and Oktay Goktas}
+  \vspace{12pt}
+\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{10pt}
+
+\input{sections/theorem}
+\input{sections/training}
+\input{sections/claim_map}
+
+\end{document}
