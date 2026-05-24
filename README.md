@@ -16,13 +16,20 @@ World models for partially observed environments must imagine multiple compatibl
 
 On a hidden-velocity indicator task requiring five-step forward simulation under a given action sequence with the target observation masked, UWM-JEPA reaches **0.77 accuracy** and degrades monotonically as actions are perturbed; a parameter-matched LSTM-JEPA with the same objective and action head **collapses to majority-class accuracy (0.53)** under every action condition. Under blind rollout, UWM-JEPA loses fewer than ten points of probe *R*² at short horizons while vector-latent baselines lose forty-one and sixty-eight; both nevertheless tie on a held-out context probe, locating the separation in the predictor rather than the encoder. Action sensitivity itself requires training against counterfactual rather than teacher-forced targets, a finding that applies beyond the unitary parameterisation. For JEPA world models to imagine under partial observability, **latent geometry and predictor dynamics matter, not encoder capacity alone**.
 
-## Headline results
+## Result
 
-- **Belief-state latent** — A bipartite density matrix on a joint system–environment Hilbert space replaces the vector latent of a standard JEPA. The reduced system state is what downstream probes read; the environment factor carries hidden modes through imagined rollout.
-- **Information-preserving predictor** — Unitary conjugation preserves the joint-state spectrum exactly. The predictor itself cannot collapse the represented uncertainty under blind rollout (theorem; numerical verification in Fig. S1).
-- **Matched-baseline contrast** — On a hidden-velocity indicator task that requires mental-simulating five steps forward under a given action sequence with the target observation masked, UWM-JEPA-CF reaches **0.77** while a parameter-matched LSTM-JEPA-CF with the same objective and action head sits at **majority-class (0.53)** under every condition.
-- **Encoder is not the explanation** — The same matched baseline ties UWM-JEPA on a five-seed held-out probe of hidden velocity (*p* = 0.70), locating the empirical separation in the predictor.
-- **Counterfactual training targets** — Action sensitivity collapses under teacher-forced targets (‖H₁‖/‖H₀‖ ≈ 0.03) and is restored by counterfactual simulator-rollout targets (‖H₁‖/‖H₀‖ ≈ 1.00). The finding applies beyond the unitary parameterisation.
+The headline empirical contrast is the **hidden-velocity indicator task**: predict the sign of velocity five steps ahead under a given action sequence, with the corresponding observation masked. The model must roll the latent forward under the action sequence and read the answer from its own imagined state.
+
+| Action condition | UWM-JEPA-CF | LSTM-JEPA-CF |
+|---|---|---|
+| Correct   | **0.770 ± 0.011** | 0.530 ± 0.000 |
+| No-action | 0.733 ± 0.013     | 0.530 ± 0.000 |
+| Shuffled  | 0.685 ± 0.003     | 0.530 ± 0.000 |
+| Wrong     | 0.639 ± 0.034     | 0.530 ± 0.000 |
+
+*Mean ± std over three seeds. Class distribution is 265 / 235, so majority-class accuracy is 0.53.*
+
+UWM-JEPA-CF degrades monotonically as the action sequence is perturbed. The parameter-matched LSTM-JEPA-CF — same training objective, same action head — predicts the majority class for every one of the 500 held-out examples under every action condition. The two models additionally tie on a held-out context probe (*p* = 0.70), so the separation is in the predictor, not the encoder. Full evidence in Fig. 2 of the paper.
 
 ## Repository layout
 
