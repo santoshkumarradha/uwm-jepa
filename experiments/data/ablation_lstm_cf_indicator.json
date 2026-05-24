@@ -1,0 +1,864 @@
+{
+  "n_checkpoints": 12,
+  "context_len": 15,
+  "k_horizon": 5,
+  "n_eval": 500,
+  "n_decoder_train": 1000,
+  "rows": [
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s123/checkpoint.pt",
+      "run": "h12_lr0.0003_s123",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.0003,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 12,
+        "embed_dim_obs": 8,
+        "embed_dim_act": 2,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 123,
+        "param_counts": {
+          "encoder": 1298,
+          "projection_online": 1612,
+          "predictor_head": 1612,
+          "predictor": 1740,
+          "total_trainable": 6262
+        }
+      },
+      "decoder_target_eval_accuracy": 0.5,
+      "decoder_target_class_counts": {
+        "0": 177,
+        "1": 323
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 12.048123221532212
+        },
+        "wrong": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 12.049306773952164
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 13.201931741855182
+        },
+        "shuffled": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 12.046342181679847
+        }
+      },
+      "collapsed_all_conditions": true
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s42/checkpoint.pt",
+      "run": "h12_lr0.0003_s42",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.0003,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 12,
+        "embed_dim_obs": 8,
+        "embed_dim_act": 2,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 42,
+        "param_counts": {
+          "encoder": 1298,
+          "projection_online": 1612,
+          "predictor_head": 1612,
+          "predictor": 1740,
+          "total_trainable": 6262
+        }
+      },
+      "decoder_target_eval_accuracy": 0.536,
+      "decoder_target_class_counts": {
+        "0": 147,
+        "1": 353
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 16.079368262228954
+        },
+        "wrong": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 16.078093577894403
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 14.95682662928514
+        },
+        "shuffled": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 16.084473223592326
+        }
+      },
+      "collapsed_all_conditions": true
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s456/checkpoint.pt",
+      "run": "h12_lr0.0003_s456",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.0003,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 12,
+        "embed_dim_obs": 8,
+        "embed_dim_act": 2,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 456,
+        "param_counts": {
+          "encoder": 1298,
+          "projection_online": 1612,
+          "predictor_head": 1612,
+          "predictor": 1740,
+          "total_trainable": 6262
+        }
+      },
+      "decoder_target_eval_accuracy": 0.898,
+      "decoder_target_class_counts": {
+        "0": 250,
+        "1": 250
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.532,
+          "class_counts": {
+            "0": 491,
+            "1": 9
+          },
+          "mean_abs_margin": 12.669213950197449
+        },
+        "wrong": {
+          "accuracy": 0.532,
+          "class_counts": {
+            "0": 489,
+            "1": 11
+          },
+          "mean_abs_margin": 12.654004985000057
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 482,
+            "1": 18
+          },
+          "mean_abs_margin": 11.747966227291199
+        },
+        "shuffled": {
+          "accuracy": 0.532,
+          "class_counts": {
+            "0": 491,
+            "1": 9
+          },
+          "mean_abs_margin": 12.689137378282936
+        }
+      },
+      "collapsed_all_conditions": false
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s123/checkpoint.pt",
+      "run": "h255_lr0.001_s123",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 255,
+        "embed_dim_obs": 16,
+        "embed_dim_act": 4,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 128,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 123,
+        "param_counts": {
+          "encoder": 282832,
+          "projection_online": 32959,
+          "predictor_head": 32959,
+          "predictor": 66175,
+          "total_trainable": 414925
+        }
+      },
+      "decoder_target_eval_accuracy": 0.558,
+      "decoder_target_class_counts": {
+        "0": 186,
+        "1": 314
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 288.7669438885368
+        },
+        "wrong": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 288.770463792082
+        },
+        "no_action": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 268.43027072877925
+        },
+        "shuffled": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 288.7591231791486
+        }
+      },
+      "collapsed_all_conditions": true
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s42/checkpoint.pt",
+      "run": "h255_lr0.001_s42",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 255,
+        "embed_dim_obs": 16,
+        "embed_dim_act": 4,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 128,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 42,
+        "param_counts": {
+          "encoder": 282832,
+          "projection_online": 32959,
+          "predictor_head": 32959,
+          "predictor": 66175,
+          "total_trainable": 414925
+        }
+      },
+      "decoder_target_eval_accuracy": 0.578,
+      "decoder_target_class_counts": {
+        "0": 194,
+        "1": 306
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 170599.27429394025
+        },
+        "wrong": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 170600.8142846224
+        },
+        "no_action": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 168805.08173168224
+        },
+        "shuffled": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 170601.8148916837
+        }
+      },
+      "collapsed_all_conditions": true
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s456/checkpoint.pt",
+      "run": "h255_lr0.001_s456",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 255,
+        "embed_dim_obs": 16,
+        "embed_dim_act": 4,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 128,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 456,
+        "param_counts": {
+          "encoder": 282832,
+          "projection_online": 32959,
+          "predictor_head": 32959,
+          "predictor": 66175,
+          "total_trainable": 414925
+        }
+      },
+      "decoder_target_eval_accuracy": 0.568,
+      "decoder_target_class_counts": {
+        "0": 221,
+        "1": 279
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 237.40042722607265
+        },
+        "wrong": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 237.40623596828942
+        },
+        "no_action": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 171.08810181160172
+        },
+        "shuffled": {
+          "accuracy": 0.47,
+          "class_counts": {
+            "1": 500
+          },
+          "mean_abs_margin": 237.43696963086887
+        }
+      },
+      "collapsed_all_conditions": true
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s123/checkpoint.pt",
+      "run": "h32_lr0.0001_s123",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.0001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 32,
+        "embed_dim_obs": 8,
+        "embed_dim_act": 2,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 123,
+        "param_counts": {
+          "encoder": 5778,
+          "projection_online": 4192,
+          "predictor_head": 4192,
+          "predictor": 4320,
+          "total_trainable": 18482
+        }
+      },
+      "decoder_target_eval_accuracy": 0.522,
+      "decoder_target_class_counts": {
+        "0": 192,
+        "1": 308
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.52,
+          "class_counts": {
+            "0": 471,
+            "1": 29
+          },
+          "mean_abs_margin": 3.1305611272994276
+        },
+        "wrong": {
+          "accuracy": 0.514,
+          "class_counts": {
+            "0": 468,
+            "1": 32
+          },
+          "mean_abs_margin": 3.14826522350107
+        },
+        "no_action": {
+          "accuracy": 0.514,
+          "class_counts": {
+            "0": 456,
+            "1": 44
+          },
+          "mean_abs_margin": 1.3377930075039477
+        },
+        "shuffled": {
+          "accuracy": 0.538,
+          "class_counts": {
+            "0": 474,
+            "1": 26
+          },
+          "mean_abs_margin": 3.128816846232688
+        }
+      },
+      "collapsed_all_conditions": false
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s42/checkpoint.pt",
+      "run": "h32_lr0.0001_s42",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.0001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 32,
+        "embed_dim_obs": 8,
+        "embed_dim_act": 2,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 42,
+        "param_counts": {
+          "encoder": 5778,
+          "projection_online": 4192,
+          "predictor_head": 4192,
+          "predictor": 4320,
+          "total_trainable": 18482
+        }
+      },
+      "decoder_target_eval_accuracy": 0.666,
+      "decoder_target_class_counts": {
+        "0": 236,
+        "1": 264
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 52.379618234091716
+        },
+        "wrong": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 52.38302608755711
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 50.5418610798044
+        },
+        "shuffled": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 52.38995385759855
+        }
+      },
+      "collapsed_all_conditions": true
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s456/checkpoint.pt",
+      "run": "h32_lr0.0001_s456",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.0001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 32,
+        "embed_dim_obs": 8,
+        "embed_dim_act": 2,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 456,
+        "param_counts": {
+          "encoder": 5778,
+          "projection_online": 4192,
+          "predictor_head": 4192,
+          "predictor": 4320,
+          "total_trainable": 18482
+        }
+      },
+      "decoder_target_eval_accuracy": 0.678,
+      "decoder_target_class_counts": {
+        "0": 232,
+        "1": 268
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 93.19282806856896
+        },
+        "wrong": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 93.19307513618105
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 91.29561737349091
+        },
+        "shuffled": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 93.19265632968518
+        }
+      },
+      "collapsed_all_conditions": true
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s123/checkpoint.pt",
+      "run": "h63_lr0.001_s123",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 63,
+        "embed_dim_obs": 16,
+        "embed_dim_act": 4,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 123,
+        "param_counts": {
+          "encoder": 21712,
+          "projection_online": 8191,
+          "predictor_head": 8191,
+          "predictor": 8447,
+          "total_trainable": 46541
+        }
+      },
+      "decoder_target_eval_accuracy": 0.896,
+      "decoder_target_class_counts": {
+        "0": 243,
+        "1": 257
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.52,
+          "class_counts": {
+            "0": 477,
+            "1": 23
+          },
+          "mean_abs_margin": 5.775301285300877
+        },
+        "wrong": {
+          "accuracy": 0.538,
+          "class_counts": {
+            "0": 478,
+            "1": 22
+          },
+          "mean_abs_margin": 5.894879617624076
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 8.687754978364712
+        },
+        "shuffled": {
+          "accuracy": 0.524,
+          "class_counts": {
+            "0": 477,
+            "1": 23
+          },
+          "mean_abs_margin": 5.7949694788277695
+        }
+      },
+      "collapsed_all_conditions": false
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s42/checkpoint.pt",
+      "run": "h63_lr0.001_s42",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 63,
+        "embed_dim_obs": 16,
+        "embed_dim_act": 4,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 42,
+        "param_counts": {
+          "encoder": 21712,
+          "projection_online": 8191,
+          "predictor_head": 8191,
+          "predictor": 8447,
+          "total_trainable": 46541
+        }
+      },
+      "decoder_target_eval_accuracy": 0.918,
+      "decoder_target_class_counts": {
+        "0": 254,
+        "1": 246
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.388,
+          "class_counts": {
+            "0": 307,
+            "1": 193
+          },
+          "mean_abs_margin": 3.631360237625642
+        },
+        "wrong": {
+          "accuracy": 0.464,
+          "class_counts": {
+            "0": 305,
+            "1": 195
+          },
+          "mean_abs_margin": 3.4614724564401964
+        },
+        "no_action": {
+          "accuracy": 0.452,
+          "class_counts": {
+            "0": 453,
+            "1": 47
+          },
+          "mean_abs_margin": 3.0599303184170656
+        },
+        "shuffled": {
+          "accuracy": 0.406,
+          "class_counts": {
+            "0": 316,
+            "1": 184
+          },
+          "mean_abs_margin": 3.4195305704859775
+        }
+      },
+      "collapsed_all_conditions": false
+    },
+    {
+      "checkpoint": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s456/checkpoint.pt",
+      "run": "h63_lr0.001_s456",
+      "config": {
+        "model": "lstm_action_cf",
+        "vocab_size": 17,
+        "n_actions": 5,
+        "obs_stride": 3,
+        "action_strength": 1.5,
+        "context_len": 15,
+        "k_horizon": 5,
+        "steps": 5000,
+        "batch_size": 8,
+        "lr": 0.001,
+        "weight_decay": 1e-05,
+        "ema_tau": 0.99,
+        "hidden_size": 63,
+        "embed_dim_obs": 16,
+        "embed_dim_act": 4,
+        "n_layers": 1,
+        "dropout": 0.0,
+        "predictor_hidden": 64,
+        "predictor_depth": 1,
+        "target": "counterfactual",
+        "seed": 456,
+        "param_counts": {
+          "encoder": 21712,
+          "projection_online": 8191,
+          "predictor_head": 8191,
+          "predictor": 8447,
+          "total_trainable": 46541
+        }
+      },
+      "decoder_target_eval_accuracy": 0.786,
+      "decoder_target_class_counts": {
+        "0": 246,
+        "1": 254
+      },
+      "conditions": {
+        "correct": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 76.01413352203579
+        },
+        "wrong": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 75.93013620999696
+        },
+        "no_action": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 61.59834990266706
+        },
+        "shuffled": {
+          "accuracy": 0.53,
+          "class_counts": {
+            "0": 500
+          },
+          "mean_abs_margin": 75.95945207472114
+        }
+      },
+      "collapsed_all_conditions": true
+    }
+  ]
+}

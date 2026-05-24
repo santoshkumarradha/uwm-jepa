@@ -117,8 +117,8 @@ Negated actions      & $0.0132 \pm 0.0022$ \\
 
 The counterfactual-target and perturbation results establish that
 UWM-JEPA-CF uses the action channel. The indicator task tests whether
-this translates into a downstream ability that the matched
-LSTM-JEPA-CF baseline lacks.
+this translates into a downstream ability that is absent in the
+matched LSTM-JEPA-CF configuration evaluated in the main comparison.
 
 \paragraph{Task}
 The indicator is a binary classification: predict
@@ -140,7 +140,7 @@ targets recover an action term comparable to the base dynamics.
 \textbf{B}: action perturbation controls increase Hilbert--Schmidt
 distance to the counterfactual target. \textbf{C}: the hidden-velocity
 indicator is solved above chance by UWM-JEPA-CF, while the matched
-LSTM-JEPA-CF configuration collapses to a flat majority-class
+LSTM-JEPA-CF main-comparison configuration collapses to majority-class
 predictor.}
 \label{fig:action-binding}
 \end{figure*}
@@ -183,3 +183,6 @@ $235$ class-$1$ ground-truth examples. Third, the scope of the claim
 is fixed: under the same JEPA+counterfactual protocol with matched
 parameter count, the LSTM variant fails this task while UWM-JEPA-CF
 solves it above chance and with the expected action-ordering.
+
+Additional LSTM-CF and supervised recurrent controls are reported in
+\cref{sec:baseline-ablations}.

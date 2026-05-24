@@ -1,0 +1,218 @@
+[
+  {
+    "job": {
+      "name": "h12_lr0.0003_s42",
+      "seed": 42,
+      "hidden_size": 12,
+      "embed_obs": 8,
+      "embed_act": 2,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.0003,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s42",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s42/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h12_lr0.0003_s123",
+      "seed": 123,
+      "hidden_size": 12,
+      "embed_obs": 8,
+      "embed_act": 2,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.0003,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s123",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s123/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h12_lr0.0003_s456",
+      "seed": 456,
+      "hidden_size": 12,
+      "embed_obs": 8,
+      "embed_act": 2,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.0003,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s456",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h12_lr0.0003_s456/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h32_lr0.0001_s42",
+      "seed": 42,
+      "hidden_size": 32,
+      "embed_obs": 8,
+      "embed_act": 2,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.0001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s42",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s42/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h32_lr0.0001_s123",
+      "seed": 123,
+      "hidden_size": 32,
+      "embed_obs": 8,
+      "embed_act": 2,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.0001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s123",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s123/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h32_lr0.0001_s456",
+      "seed": 456,
+      "hidden_size": 32,
+      "embed_obs": 8,
+      "embed_act": 2,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.0001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s456",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h32_lr0.0001_s456/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h63_lr0.001_s42",
+      "seed": 42,
+      "hidden_size": 63,
+      "embed_obs": 16,
+      "embed_act": 4,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s42",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s42/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h63_lr0.001_s123",
+      "seed": 123,
+      "hidden_size": 63,
+      "embed_obs": 16,
+      "embed_act": 4,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s123",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s123/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h63_lr0.001_s456",
+      "seed": 456,
+      "hidden_size": 63,
+      "embed_obs": 16,
+      "embed_act": 4,
+      "pred_hidden": 64,
+      "pred_depth": 1,
+      "lr": 0.001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s456",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h63_lr0.001_s456/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h255_lr0.001_s42",
+      "seed": 42,
+      "hidden_size": 255,
+      "embed_obs": 16,
+      "embed_act": 4,
+      "pred_hidden": 128,
+      "pred_depth": 1,
+      "lr": 0.001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s42",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s42/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h255_lr0.001_s123",
+      "seed": 123,
+      "hidden_size": 255,
+      "embed_obs": 16,
+      "embed_act": 4,
+      "pred_hidden": 128,
+      "pred_depth": 1,
+      "lr": 0.001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s123",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s123/train.stdout"
+  },
+  {
+    "job": {
+      "name": "h255_lr0.001_s456",
+      "seed": 456,
+      "hidden_size": 255,
+      "embed_obs": 16,
+      "embed_act": 4,
+      "pred_hidden": 128,
+      "pred_depth": 1,
+      "lr": 0.001,
+      "steps": 5000,
+      "batch_size": 8
+    },
+    "out_dir": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s456",
+    "status": "ok",
+    "returncode": 0,
+    "log": "experiments/jepa_v4/new/EXP_REVIEWER_ABLATIONS/lstm_cf_confirm_5k/h255_lr0.001_s456/train.stdout"
+  }
+]

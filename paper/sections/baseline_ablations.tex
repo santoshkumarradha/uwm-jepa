@@ -1,0 +1,83 @@
+\section{Additional Baseline Ablations}
+\label{sec:baseline-ablations}
+
+The main action-binding result compares UWM-JEPA-CF to a
+parameter-matched LSTM-JEPA-CF configuration trained with the same
+counterfactual target. We also ran LSTM-CF ablations that vary
+recurrent state size and learning rate while leaving the
+counterfactual-JEPA target and indicator evaluation unchanged.
+
+\begin{table}[h]
+\centering
+\small
+\caption{\textbf{LSTM-CF tuning confirmation at the original 5k-step
+budget.} Values are mean $\pm$ std over three seeds. Target accuracy
+reports the linear indicator readout on target-encoder latents; correct,
+wrong, no-action, and shuffled report the same readout after blind
+counterfactual rollout. Larger recurrent states improve target-latent
+decodability in some configurations, but do not yield a stable
+action-sensitive blind rollout.}
+\label{tab:lstm-cf-confirm}
+\begin{tabular}{lccccc}
+\toprule
+Configuration & Target & Correct & Wrong & No-action & Shuffled \\
+\midrule
+$h{=}12$, lr $3{\times}10^{-4}$ &
+$0.645\pm0.220$ & $0.531\pm0.001$ & $0.531\pm0.001$ &
+$0.530\pm0.000$ & $0.531\pm0.001$ \\
+$h{=}32$, lr $1{\times}10^{-4}$ &
+$0.622\pm0.087$ & $0.527\pm0.006$ & $0.525\pm0.009$ &
+$0.525\pm0.009$ & $0.533\pm0.005$ \\
+$h{=}63$, lr $1{\times}10^{-3}$ &
+$0.867\pm0.071$ & $0.479\pm0.079$ & $0.511\pm0.041$ &
+$0.504\pm0.045$ & $0.487\pm0.070$ \\
+$h{=}255$, lr $1{\times}10^{-3}$ &
+$0.568\pm0.010$ & $0.470\pm0.000$ & $0.470\pm0.000$ &
+$0.470\pm0.000$ & $0.470\pm0.000$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The $h{=}63$ row is the clearest diagnostic. The target latents support
+a high-accuracy linear indicator readout, but the blind rollout does
+not preserve that readout under the correct action sequence. The
+failure is therefore not simply absent target-state information in the
+recurrent encoder. It appears when the counterfactual-JEPA predictor is
+asked to carry that information forward without new observations.
+
+\begin{table}[h]
+\centering
+\small
+\caption{\textbf{Directly supervised recurrent positive control.}
+Values are mean $\pm$ std over three seeds. The model receives the same
+context observations and action sequence, but is trained directly for
+the hidden-velocity indicator rather than through a JEPA latent target.}
+\label{tab:lstm-supervised-control}
+\begin{tabular}{lcc}
+\toprule
+Configuration & Correct actions & Wrong actions \\
+\midrule
+$h{=}12$  & $0.960\pm0.000$ & $0.867\pm0.017$ \\
+$h{=}63$  & $0.955\pm0.015$ & $0.839\pm0.001$ \\
+$h{=}255$ & $0.944\pm0.002$ & $0.848\pm0.011$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The supervised control shows that action-conditioned recurrent models
+can solve the indicator when optimized directly for it. Together,
+\cref{tab:lstm-cf-confirm,tab:lstm-supervised-control} locate the
+main-comparison failure in the tested counterfactual-JEPA latent
+rollout, not in the availability of action inputs or in recurrent
+capacity alone.
+
+We also evaluated a full-state linear probe that predicts both
+continuous position and hidden velocity. Across the three UWM-JEPA-CF
+seeds, blind-rollout full-state mean $R^2$ is $0.291\pm0.009$ and blind
+velocity-sign accuracy is $0.734\pm0.007$. In the LSTM-CF confirmation
+runs, target encoders can be decodable while blind rollout remains near
+majority-class behavior; for example, the $h{=}63$ confirmation gives
+target full-state mean $R^2=0.845\pm0.125$ but blind velocity-sign
+accuracy $0.538\pm0.007$. This broader probe supports the same
+interpretation as the binary indicator: the separation appears after
+blind rollout, not simply at the target-encoder representation.

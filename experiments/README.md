@@ -24,6 +24,18 @@ Requires: `numpy`, `matplotlib`. Tested with Python 3.12.
 
 Fig. 1a (concept) and Fig. 1b (architecture) are handcrafted and shipped as static PNG in `../paper/figures/`.
 
+## Supplementary ablation data
+
+The baseline-ablation tables in the supplement (Section S3) are sourced from:
+
+| Table | Data file |
+|---|---|
+| LSTM-CF tuning confirmation (5k steps) | `ablation_lstm_cf_indicator.json`, `ablation_lstm_cf_summary.json` |
+| Directly supervised recurrent control | `ablation_supervised_indicator.json` |
+| Full-state linear probe results | `ablation_full_state_probe.json` |
+
+These tables are hand-typed in the LaTeX source from the bundled JSON.
+
 ## Data files
 
 All files in `data/` are the aggregated outputs of training and evaluation runs. Each is small (a few KB to a few MB) so the entire reproducibility bundle fits in the repo.

@@ -45,12 +45,10 @@ action term comparable to the base dynamics and yield an above-chance
 hidden-velocity indicator with the expected degradation under wrong,
 shuffled, and no-action controls. The construction is evidence for
 action-conditioned imagination in this testbed, not for long-horizon
-planning, and not for any claim that recurrent or Transformer
-predictors with different architectures or objectives could not close
-the gap. The counterfactual training target also requires simulator
-access to construct alternate futures, which limits portability to
-settings where only passive videos or observation streams are
-available.
+planning, and not for alternative recurrent or Transformer objectives.
+The counterfactual training target also requires simulator access to
+construct alternate futures, which limits portability to settings where
+only passive videos or observation streams are available.
 
 Matched-baseline language refers to trainable parameter count rather
 than the number of coordinates in the latent state. A $16\times16$
@@ -59,6 +57,8 @@ vector hidden state, even when the trainable encoder and predictor
 budgets are matched, which makes the context-probe tie in
 \cref{fig:heldout} a central control: it shows that the main
 comparison is not explained by a better frozen context representation.
+The supplementary baseline ablations further separate target-encoder
+decodability from blind-rollout performance.
 
 The present experiments use structured partially observable oscillator
 and CartPole-style settings, and the present results do not extend to
