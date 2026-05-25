@@ -23,3 +23,7 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# arXiv submission artifacts
+arxiv_build/
+uwm-jepa-arxiv.zip
